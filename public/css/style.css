@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  color: #d06550;
+  text-transform: uppercase;
+}
+
+.navbar {
+  background-color: #d7cbb2;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #d06550;
+}
+
+#navbarSupportedContent {
+  flex-grow: 0;
+}
+
+.banner-container {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.categories {
+  position: relative;
+  height: 50px;
+  margin: 0 10px;
+  background-color: lightgreen;
+  border-radius: 10px;
+}
+
+.categories a {
+  position: absolute;
+  top: 50%;
+}
+
+footer {
+  background-color: #d7cbb2;
+  display: flex;
+  justify-content: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+}
