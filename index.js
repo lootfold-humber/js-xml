@@ -17,13 +17,13 @@ app.get("/", (request, response) => {
 
 app.get("/list", (request, response) => {
   response.render("list", {
-    title: "Product List",
+    title: "Products",
   });
 });
 
 app.get("/cart", (request, response) => {
   response.render("cart", {
-    title: "Checkout",
+    title: "Cart Summary",
   });
 });
 
