@@ -12,7 +12,8 @@ html(lang='en')
         header
             nav.navbar.navbar-expand-lg.navbar-light
                 div.container-fluid
-                    h1 Grocery Store
+                    a(href="/")
+                        h1 Grocery Store
                     button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
                         span.navbar-toggler-icon
                     div.collapse.navbar-collapse#navbarSupportedContent
@@ -27,6 +28,7 @@ html(lang='en')
                             li.nav-item
                                 a.nav-link(href="/") Contact
         main
+            hr
             block content
         footer
             p &copy; COPYRIGHT | GROCERY STORE 2022

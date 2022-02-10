@@ -1,20 +1,34 @@
-@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto&display=swap");
+
+h1,
+h2,
+h3 {
+  font-family: "Bebas Neue", cursive;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: rgb(132, 194, 37);
+}
 
 body {
   font-family: "Roboto", sans-serif;
 }
 
-h1 {
-  color: #d06550;
-  text-transform: uppercase;
+a {
+  text-decoration: none;
 }
 
-.navbar {
-  background-color: #d7cbb2;
+hr {
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-light .navbar-nav .nav-link {
-  color: #d06550;
+.btn,
+.btn:focus,
+.btn:active,
+.btn:hover {
+  background-color: rgb(132, 194, 37);
 }
 
 #navbarSupportedContent {
@@ -26,28 +40,46 @@ h1 {
   overflow: hidden;
 }
 
-.popular-item {
+.popular {
   position: relative;
   height: 50px;
   margin: 0 10px;
-  background-color: lightgreen;
+  background-color: rgb(132, 194, 37);
   border-radius: 10px;
 }
 
-.popular-item a {
+.popular a {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
   left: 50%;
+  color: black;
 }
 
-.product-list {
-  max-width: 800px;
-  margin: auto;
+.container {
+  margin-top: 1em;
 }
 
-.product-list h2 {
-  padding-left: 1rem;
+.categories {
+  border-top: 1px solid lightgray ;
+  padding-top: 1em;
+}
+
+.categories li {
+  list-style: none;
+  margin-left: 1em;
+}
+.categories a {
+  color: black;
+}
+
+.categories a:hover,
+.categories a:visited {
+  color: black;
+}
+
+.products {
+  border-left: 1px solid lightgray;
 }
 
 .product {
@@ -70,18 +102,30 @@ h1 {
   margin-left: 1em;
 }
 
-.form-group, fieldset {
+.cart-heading {
+  text-align: center;
+}
+
+.separator {
+  width: 0;
+  height: 100%;
+  border: 1px solid lightgray;
+}
+
+.form-group,
+fieldset {
   margin-top: 1em;
 }
 
 .btn-checkout {
-  margin: 1em 0;
+  margin-top: 1em;
 }
 
 footer {
-  background-color: #d7cbb2;
   display: flex;
   justify-content: center;
+  margin-top: 1em;
+  background: #eaeaea;
 }
 
 footer p {

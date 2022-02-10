@@ -1,9 +1,10 @@
 extends layout
 block content
     div.container
-        h2 Checkout cart
+        div.row.justify-content-md-center
+            h2.col-4.cart-heading Cart Summary
         div.row.justify-content-md-center.gx-5
-            div.col-sm-10.col-md-4
+            div.col-sm-8.col-md-4
                 form(action="POST") 
                     fieldset 
                         legend Customer Details 
@@ -31,7 +32,7 @@ block content
                             label(for="zip") Zip
                             input#name.form-control(name="zip", placeholder="enter zip", required)
                     button.btn.btn-primary.btn-checkout(type="submit") Checkout
-            div.col-sm-10.col-md-4
+            div.col-sm-8.col-md-4
                 table.table
                     thead
                         tr
