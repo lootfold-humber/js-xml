@@ -56,8 +56,8 @@ h1 {
 }
 
 .product-img {
-  width: 250px;
-  height: 250px;
+  max-width: 250px;
+  max-height: 250px;
   overflow: hidden;
 }
 
@@ -68,6 +68,14 @@ h1 {
 
 .product-details {
   margin-left: 1em;
+}
+
+.form-group, fieldset {
+  margin-top: 1em;
+}
+
+.btn-checkout {
+  margin: 1em 0;
 }
 
 footer {

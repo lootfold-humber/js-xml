@@ -1,0 +1,53 @@
+extends layout
+block content
+    div.container
+        h2 Checkout cart
+        div.row.justify-content-md-center.gx-5
+            div.col-sm-10.col-md-4
+                form(action="POST") 
+                    fieldset 
+                        legend Customer Details 
+                        div.form-group
+                            label(for="name") Name
+                            input#name.form-control(name="name", placeholder="enter full name", required)
+                        div.form-group
+                            label(for="phone") Phone
+                            input#name.form-control(name="phone", placeholder="enter phone no.", type="tel", required)
+                        div.form-group
+                            label(for="email") Email
+                            input#name.form-control(name="email", placeholder="enter email", type="email", required)
+                    fieldset 
+                        legend Shipping Details
+                        div.form-group
+                            label(for="house") House/Apt No
+                            input#name.form-control(name="house", placeholder="enter house/apartment no", required)
+                        div.form-group
+                            label(for="street") Street Address
+                            input#name.form-control(name="street", placeholder="enter street address", required)
+                        div.form-group
+                            label(for="province") Province
+                            input#name.form-control(name="province", placeholder="enter province", required)
+                        div.form-group
+                            label(for="zip") Zip
+                            input#name.form-control(name="zip", placeholder="enter zip", required)
+                    button.btn.btn-primary.btn-checkout(type="submit") Checkout
+            div.col-sm-10.col-md-4
+                table.table
+                    thead
+                        tr
+                            th Item
+                            th Quantity
+                            th Price
+                    tbody
+                        tr
+                            td Red onion
+                            td 2
+                            td $8
+                        tr
+                            td Potato
+                            td 3
+                            td $12
+                    tfoot
+                        tr
+                            th(colspan=2) Total
+                            th $20

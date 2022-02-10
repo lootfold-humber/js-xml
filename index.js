@@ -21,6 +21,12 @@ app.get("/list", (request, response) => {
   });
 });
 
+app.get("/cart", (request, response) => {
+  response.render("cart", {
+    title: "Checkout",
+  });
+});
+
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
 });
