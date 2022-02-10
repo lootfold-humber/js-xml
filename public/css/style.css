@@ -26,7 +26,7 @@ h1 {
   overflow: hidden;
 }
 
-.categories {
+.popular-item {
   position: relative;
   height: 50px;
   margin: 0 10px;
@@ -34,9 +34,40 @@ h1 {
   border-radius: 10px;
 }
 
-.categories a {
+.popular-item a {
   position: absolute;
   top: 50%;
+  transform: translate(-50%, -50%);
+  left: 50%;
+}
+
+.product-list {
+  max-width: 800px;
+  margin: auto;
+}
+
+.product-list h2 {
+  padding-left: 1rem;
+}
+
+.product {
+  display: flex;
+  padding: 1em;
+}
+
+.product-img {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.product img {
+  width: 250px;
+  height: auto;
+}
+
+.product-details {
+  margin-left: 1em;
 }
 
 footer {

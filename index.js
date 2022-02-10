@@ -15,6 +15,12 @@ app.get("/", (request, response) => {
   });
 });
 
+app.get("/list", (request, response) => {
+  response.render("list", {
+    title: "Product List",
+  });
+});
+
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
 });
