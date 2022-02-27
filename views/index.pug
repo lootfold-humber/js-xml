@@ -1,0 +1,9 @@
+extends layout
+
+block layout-content
+  h1 Movies
+  ul
+    each m in movies
+      li 
+        strong #{m.movie.title}
+        div #{m.movie.overview}

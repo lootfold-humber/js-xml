@@ -1,0 +1,15 @@
+extends layout
+
+block layout-content
+  h1 Top 15 popular shows
+  table
+    thead
+        tr
+            th Title 
+            th Year 
+    tbody
+        each s in shows
+            tr 
+                td 
+                    a(href=s.imdbUrl target="_blank") #{s.title}
+                td #{s.year}
