@@ -1,0 +1,90 @@
+@import url("https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Roboto&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
+  color: #d06550;
+  text-transform: uppercase;
+}
+
+.navbar {
+  background-color: #d7cbb2;
+}
+
+.navbar-light .navbar-nav .nav-link {
+  color: #d06550;
+}
+
+#navbarSupportedContent {
+  flex-grow: 0;
+}
+
+.banner-container {
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.banner-img {
+  width: 100%;
+  height: auto;
+}
+
+.banner-text {
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  font-size: 2em;
+  font-weight: 900;
+  color: white;
+  font-family: "Mochiy Pop P One", sans-serif;
+}
+
+.card {
+  padding: 1em;
+}
+
+.btn-app,
+.btn-order {
+  color: white;
+  padding: 0.3rem 0.7rem;
+  border-radius: 0.2rem;
+  text-decoration: none;
+}
+
+.btn-order {
+  background-color: #d06550;
+}
+
+.btn-app {
+  background-color: #d88e35;
+}
+
+.btn-app:visited,
+.btn-order:visited {
+  color: white;
+}
+
+.btn-app:hover,
+.btn-order:hover {
+  color: black;
+}
+
+footer {
+  background-color: #d7cbb2;
+  display: flex;
+  justify-content: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media screen and (max-width: 600px) {
+  .banner-text {
+    font-size: 1em;
+  }
+}

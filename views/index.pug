@@ -1,0 +1,69 @@
+doctype
+html(lang='en')
+    head
+        meta(charset='utf-8')
+        meta(name="viewport", content="width=device-width")
+        title #{title}
+        link(rel="stylesheet", href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css", integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3", crossorigin="anonymous")
+        script(src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous")
+        script(src="https://kit.fontawesome.com/a80078a209.js", crossorigin="anonymous") 
+        link(rel="stylesheet", href="css/style.css")
+    body
+        header
+            nav.navbar.navbar-expand-lg.navbar-light
+                div.container-fluid
+                    h1 Pet Store
+                    button.navbar-toggler(type="button", data-bs-toggle="collapse", data-bs-target="#navbarSupportedContent", aria-controls="navbarSupportedContent", aria-expanded="false", aria-label="Toggle navigation")
+                        span.navbar-toggler-icon
+                    div.collapse.navbar-collapse#navbarSupportedContent
+                        ul.navbar-nav.me-auto.mb-2.mb-lg-0
+                            li.nav-item
+                                a.nav-link(href="/") Accessories
+                            li.nav-item
+                                a.nav-link(href="/") Food
+                            li.nav-item
+                                a.nav-link(href="/") Clothing
+                            li.nav-item
+                                a.nav-link(href="/") Grooming
+                            li.nav-item
+                                a.nav-link(href="/") Pharmacy
+        main
+            div.banner-container
+                //- https://www.pexels.com/photo/closeup-photo-of-brown-and-black-dog-face-406014/
+                img.banner-img(src="images/banner.jpg")
+                p.banner-text All your dog's need at one location.
+            div.container
+                div.row
+                    div.card.col-sm-12.col-md-6.col-lg-4
+                        div.card-body
+                            h5.card-title Collars & Leashes
+                            p.card-text Up to 40% off on all dog collars and leashes. Offer valid for a week.
+                            a.btn-order(href="/") Order Now
+                    div.card.col-sm-12.col-md-6.col-lg-4
+                        div.card-body
+                            h5.card-title Dog Food
+                            p.card-text Find the best quality food in any of our stores or just order it online.
+                            a.btn-order(href="/") Order Now
+                    div.card.col-sm-12.col-md-6.col-lg-4
+                        div.card-body
+                            h5.card-title Grooming
+                            p.card-text Get your dog taken care by our highly trained professionals.
+                            a.btn-app(href="/") Book an appointment
+                    div.card.col-sm-12.col-md-6.col-lg-4
+                        div.card-body
+                            h5.card-title Winter Clothing
+                            p.card-text Keep your dogs warm and cozy. Order jackets from out winter clothing section.
+                            a.btn-order(href="/") Order Now
+                    div.card.col-sm-12.col-md-6.col-lg-4
+                        div.card-body
+                            h5.card-title Toys
+                            p.card-text Keep your four legged friends happy. Buy them a toy from our large collection.
+                            a.btn-order(href="/") Order Now
+                    div.card.col-sm-12.col-md-6.col-lg-4
+                        div.card-body
+                            h5.card-title Pharmacy
+                            p.card-text Is your friend feeling a litte under the weather?
+                            a.btn-app(href="/") Book an appointment
+            
+        footer
+            p &copy; COPYRIGHT | PET STORE 2022
