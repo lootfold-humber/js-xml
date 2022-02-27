@@ -1,0 +1,11 @@
+extends layout
+block content
+    h1 #{title}
+    form(method="post", action="api/add") 
+        div
+            label(for="name") Name
+            input#name(name="name")
+        div
+            label(for="breed") Breed
+            input#breed(name="breed")
+        button(type="submit") Add

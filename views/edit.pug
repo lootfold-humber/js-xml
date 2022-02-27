@@ -1,0 +1,12 @@
+extends layout
+block content
+    h1 #{title}
+    form(method="post", action="api/edit") 
+        div
+            label(for="name") Name
+            input#name(name="name", value=cat.name)
+        div
+            label(for="breed") Breed
+            input#breed(name="breed", value=cat.breed)
+        input(type="hidden", name="id", value=cat._id)
+        button(type="submit") Save

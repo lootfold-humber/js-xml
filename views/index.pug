@@ -1,0 +1,22 @@
+extends layout
+block content
+    h1 #{title}
+    a(href="add") Add New Cat
+    table
+        thead
+            tr
+                th Name
+                th Breed 
+                th Action
+        tbody
+            each cat in cats
+                tr
+                    td #{cat.name}
+                    td #{cat.breed}
+                    td
+                        form.action-form(action="edit")
+                            input(type="hidden", value=cat._id, name="id")
+                            button(type="submit") Edit
+                        form.action-form(action="/api/delete")
+                            input(type="hidden", value=cat._id, name="id")
+                            button(type="submit") Delete
