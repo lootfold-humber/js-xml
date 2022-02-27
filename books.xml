@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE books SYSTEM './books.dtd'>
+<books>
+  <book isbn="9781617205026" format="paperback" pages="140">
+    <title>Little Lord Fauntleroy</title>
+    <publisher>Wilder Publications</publisher>
+    <publishdate>2011-12-26</publishdate>
+    <language>English</language>
+    <authors>
+      <author>
+        <firstname>Frances</firstname>
+        <middlename>Hodgson</middlename>
+        <lastname>Burnett</lastname>
+      </author>
+    </authors>
+  </book>
+  <book isbn="9781501192272" format="paperback" pages="784">
+    <title>The Talisman: A Novel</title>
+    <publisher>Gallery Books</publisher>
+    <publishdate>2018-04-17</publishdate>
+    <language>English</language>
+    <authors>
+      <author>
+        <firstname>Stephen</firstname>
+        <lastname>King</lastname>
+      </author>
+      <author>
+        <firstname>Peter</firstname>
+        <lastname>Straub</lastname>
+      </author>
+    </authors>
+  </book>
+</books>

@@ -1,0 +1,16 @@
+<!ELEMENT books (book*)>
+<!ELEMENT book (title, publisher, publishdate, language, authors)>
+<!ATTLIST book
+    isbn CDATA #REQUIRED
+    format (audiobook | paperback | hardcover | ebook) "paperback"
+    pages CDATA #REQUIRED
+>
+<!ELEMENT title (#PCDATA)>
+<!ELEMENT publisher (#PCDATA)>
+<!ELEMENT publishdate (#PCDATA)>
+<!ELEMENT language (#PCDATA)>
+<!ELEMENT authors (author+)>
+<!ELEMENT author (firstname, middlename?, lastname)>
+<!ELEMENT firstname (#PCDATA)>
+<!ELEMENT middlename (#PCDATA)>
+<!ELEMENT lastname (#PCDATA)>
