@@ -1,0 +1,8 @@
+extends layout
+block content
+    form(action="/details")
+        select#branch(name='branch') required
+            each lib in libs
+                option(value=lib.id) #{lib.name}
+        button(type="submit") Go
+        
