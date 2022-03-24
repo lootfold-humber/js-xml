@@ -4,18 +4,20 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-h1 {
-  font-family: "Palette Mosaic", cursive;
-  text-transform: uppercase;
+header {
+  height: 50px;
 }
 
 h1 {
+  font-family: "Palette Mosaic", cursive;
+  text-transform: uppercase;
   text-align: center;
   margin: 0;
 }
 
-header {
-  height: 50px;
+.header__link {
+  text-decoration: none;
+  color: black;
 }
 
 main {
