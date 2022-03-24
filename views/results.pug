@@ -2,10 +2,14 @@ extends layout
 block content
     section.results
         h2 Search results...
-        each movie in movies
-            div.movie
-                img.movie__poster(src=movie.poster, alt=movie.title + " poster")
-                div
-                    h3
-                        a.movie__title(href='/movie?id=' + movie.id) #{movie.title}
-                    p #{movie.year}
+        if movies.length
+            each movie in movies
+                div.movie
+                    if movie.poster
+                        img.movie__poster(src=movie.poster, alt=movie.title + " poster")
+                    div
+                        h3
+                            a.movie__title(href='/movie?id=' + movie.id) #{movie.title}
+                        p #{movie.year}
+        else
+            p no movies found with this title...

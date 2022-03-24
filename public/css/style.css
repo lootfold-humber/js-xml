@@ -80,9 +80,9 @@ main {
 }
 
 .details {
-  height: calc(95vh - 70px);
   display: flex;
   padding: 2em;
+  height: calc(90vh - 70px);
 }
 
 .details h2 {
@@ -98,17 +98,17 @@ main {
   font-style: italic;
 }
 
+.no__review {
+  color: red;
+}
+
 footer {
   height: 20px;
   margin: 0;
   display: flex;
   justify-content: center;
-  background: #eaeaea;
 }
 
 footer p {
   margin: 0;
-}
-
-@media screen and (max-width: 600px) {
 }

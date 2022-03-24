@@ -8,21 +8,25 @@ async function getSearchResults(searchKey) {
   const omdbApiKey = process.env.OMDB_API_KEY;
   const url = `${omdbBaseUrl}/?apikey=${omdbApiKey}&s="${searchKey}"`;
 
-  const { data } = await axios.get(url);
-  const { Search: search } = data;
+  try {
+    const { data } = await axios.get(url);
+    const { Search: search } = data;
 
-  const movies = search
-    .filter((s) => s.Type === "movie")
-    .map((s) => {
-      return {
-        title: s.Title,
-        year: s.Year,
-        id: s.imdbID,
-        poster: s.Poster,
-      };
-    });
+    const movies = search
+      .filter((s) => s.Type === "movie")
+      .map((s) => {
+        return {
+          title: s.Title,
+          year: s.Year,
+          id: s.imdbID,
+          poster: s.Poster !== "N/A" && s.Poster,
+        };
+      });
 
-  return movies;
+    return movies;
+  } catch {
+    return [];
+  }
 }
 
 async function getMovieById(id) {
@@ -32,7 +36,10 @@ async function getMovieById(id) {
 
   const { data: movieDetails } = await axios.get(url);
 
-  const review = await getNYTReviewLinks(movieDetails.Title, movieDetails.Year);
+  const review = await getNYTReviewLinks(
+    movieDetails.Title,
+    new Date(movieDetails.Released)
+  );
 
   const plotTranslation = await getYodaTranslation(movieDetails.Plot);
 
@@ -41,36 +48,47 @@ async function getMovieById(id) {
     actors: movieDetails.Actors,
     plot: plotTranslation,
     awards: movieDetails.Awards,
-    poster: movieDetails.Poster,
-    rating: review.rating,
-    openingDate: review.openingDate,
-    publishDate: review.publishDate,
-    reviewLink: review.reviewLink,
-    linkText: review.linkText,
+    poster: movieDetails.Poster !== "N/A" && movieDetails.Poster,
+    rating: review?.rating,
+    openingDate: review?.openingDate,
+    publishDate: review?.publishDate,
+    reviewLink: review?.reviewLink,
+    linkText: review?.linkText,
   };
 
   return movieInfo;
 }
 
-async function getNYTReviewLinks(name, year) {
+async function getNYTReviewLinks(name, released) {
   const nytBaseUrl = process.env.NY_TIMES_URL;
   const nytApiKey = process.env.NY_API_KEY;
+
+  const year = released.getFullYear();
   const dateRange = `${year}-01-01:${year}-12-31`;
 
   const url = `${nytBaseUrl}?opening-date=${dateRange}&query=${name}&api-key=${nytApiKey}`;
-  const { data } = await axios.get(url);
 
-  const reviews = data.results.map(async (r) => {
-    return {
-      rating: r.mpaa_rating,
-      publishDate: r.publication_date,
-      reviewLink: r.link.url,
-      linkText: r.link.suggested_link_text,
-      openingDate: r.opening_date,
-    };
-  });
+  try {
+    const { data } = await axios.get(url);
+    const reviews = data.results
+      .filter((r) => {
+        const openingDate = new Date(r.opening_date);
+        return year === openingDate.getFullYear();
+      })
+      .map((r) => {
+        return {
+          rating: r.mpaa_rating,
+          publishDate: r.publication_date,
+          reviewLink: r.link.url,
+          linkText: r.link.suggested_link_text,
+          openingDate: r.opening_date,
+        };
+      });
 
-  return reviews[0];
+    return reviews[0];
+  } catch {
+    return null;
+  }
 }
 
 async function getYodaTranslation(text) {
@@ -79,16 +97,12 @@ async function getYodaTranslation(text) {
   };
   const url = process.env.YODA_TRANSLATION_URL;
 
-  let translatedText = text;
-
   try {
     const { data } = await axios.post(url, body);
-    translatedText = data.contents.translated;
+    return data.contents.translated;
   } catch {
-    // do nothing
+    return text;
   }
-
-  return translatedText;
 }
 
 const service = {

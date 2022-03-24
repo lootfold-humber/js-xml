@@ -1,13 +1,22 @@
 extends layout
 block content
     div.details
-        img.details__poster(src=movie.poster alt=movie.title + " poster")
+        if movie.poster
+            img.details__poster(src=movie.poster alt=movie.title + " poster")
         div
             h2 #{movie.title}
-            p #{movie.plot}
-            p Actors: #{movie.actors}
-            p Awards: #{movie.awards}
-            p Release Date: #{movie.openingDate}
-            p Rating: #{movie.rating}
-            a(href=movie.reviewLink, target="_blank") #{movie.linkText}
-            span.publish__text &nbsp; (Published on: #{movie.publishDate})
+            if movie.plot
+                p #{movie.plot}
+            if movie.actors
+                p Actors: #{movie.actors}
+            if movie.awards
+                p Awards: #{movie.awards}
+            if movie.openingDate
+                p Release Date: #{movie.openingDate}
+            if movie.rating
+                p Rating: #{movie.rating}
+            if movie.reviewLink
+                a(href=movie.reviewLink, target="_blank") #{movie.linkText}
+                span.publish__text &nbsp; (Published on: #{movie.publishDate})
+            else
+                p.no__review No reviews available.
