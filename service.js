@@ -43,8 +43,10 @@ async function getMovieById(id) {
     awards: movieDetails.Awards,
     poster: movieDetails.Poster,
     rating: review.rating,
+    openingDate: review.openingDate,
     publishDate: review.publishDate,
     reviewLink: review.reviewLink,
+    linkText: review.linkText,
   };
 
   return movieInfo;
@@ -63,6 +65,8 @@ async function getNYTReviewLinks(name, year) {
       rating: r.mpaa_rating,
       publishDate: r.publication_date,
       reviewLink: r.link.url,
+      linkText: r.link.suggested_link_text,
+      openingDate: r.opening_date,
     };
   });
 
@@ -74,8 +78,17 @@ async function getYodaTranslation(text) {
     text,
   };
   const url = process.env.YODA_TRANSLATION_URL;
-  const { data } = await axios.post(url, body);
-  return data.contents.translated;
+
+  let translatedText = text;
+
+  try {
+    const { data } = await axios.post(url, body);
+    translatedText = data.contents.translated;
+  } catch {
+    // do nothing
+  }
+
+  return translatedText;
 }
 
 const service = {

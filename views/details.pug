@@ -1,0 +1,11 @@
+extends layout
+block content
+    h2 #{movie.title}
+    p #{movie.awards}
+    p #{movie.plot}
+    p Actors: #{movie.actors}
+    p Raring: #{movie.rating}
+    p Release Date: #{movie.openingDate}
+    a(href=movie.reviewLink) #{movie.linkText} Published on: #{movie.publishDate}
+    div
+        img(src=movie.poster alt=movie.title + " poster")
