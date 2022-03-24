@@ -28,7 +28,7 @@ app.get("/search", async (req, res) => {
 });
 
 app.get("/movie", async function (req, res) {
-  const { name, year } = req.query;
-  const data = await service.getMovieInfo(name, year);
+  const { id } = req.query;
+  const data = await service.getMovieInfo(id);
   res.render("details", { title: data.title, data });
 });

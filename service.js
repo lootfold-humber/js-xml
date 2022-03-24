@@ -11,15 +11,43 @@ async function getSearchResults(searchKey) {
   const { data } = await axios.get(url);
   const { Search: search } = data;
 
-  return search;
+  const movies = search
+    .filter((s) => s.Type === "movie")
+    .map((s) => {
+      return {
+        title: s.Title,
+        year: s.Year,
+        id: s.imdbID,
+        poster: s.Poster,
+      };
+    });
+
+  return movies;
 }
 
-async function getMovieInfo(name, year) {
-  const review = await getNYTReviewLinks(name, year);
-  const translated = await getYodaTranslation(review.summary);
-  review.summary = translated;
+async function getMovieById(id) {
+  const omdbBaseUrl = process.env.OMDB_URL;
+  const omdbApiKey = process.env.OMDB_API_KEY;
+  const url = `${omdbBaseUrl}/?apikey=${omdbApiKey}&i=${id}&plot=full`;
 
-  return review;
+  const { data: movieDetails } = await axios.get(url);
+
+  const review = await getNYTReviewLinks(movieDetails.Title, movieDetails.Year);
+
+  const plotTranslation = await getYodaTranslation(movieDetails.Plot);
+
+  const movieInfo = {
+    title: movieDetails.Title,
+    actors: movieDetails.Actors,
+    plot: plotTranslation,
+    awards: movieDetails.Awards,
+    poster: movieDetails.Poster,
+    rating: review.rating,
+    publishDate: review.publishDate,
+    reviewLink: review.reviewLink,
+  };
+
+  return movieInfo;
 }
 
 async function getNYTReviewLinks(name, year) {
@@ -30,13 +58,10 @@ async function getNYTReviewLinks(name, year) {
   const url = `${nytBaseUrl}?opening-date=${dateRange}&query=${name}&api-key=${nytApiKey}`;
   const { data } = await axios.get(url);
 
-  const reviews = data.results.map((r) => {
+  const reviews = data.results.map(async (r) => {
     return {
-      title: r.display_title,
       rating: r.mpaa_rating,
-      summary: r.summary_short,
       publishDate: r.publication_date,
-      openingDate: r.opening_date,
       reviewLink: r.link.url,
     };
   });
@@ -55,7 +80,7 @@ async function getYodaTranslation(text) {
 
 const service = {
   searchMovies: getSearchResults,
-  getMovieInfo: getMovieInfo,
+  getMovieInfo: getMovieById,
 };
 
 module.exports = service;

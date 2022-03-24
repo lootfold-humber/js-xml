@@ -2,7 +2,6 @@ extends layout
 block content
     each movie in data
         h2
-            a(href='/movie?name=' + movie.Title + '&year=' + movie.Year) #{movie.Title}
-        p Released: #{movie.Year}
-        p Type: #{movie.Type}
-        img(src=movie.Poster, alt=movie.Title + ' poster')
+            a(href='/movie?id=' + movie.id) #{movie.title}
+        p Released: #{movie.year}
+        img(src=movie.poster, alt=movie.title + "poster")
