@@ -1,6 +1,6 @@
 extends layout
 block content
-    each movie in data
+    each movie in movies
         h2
             a(href='/movie?id=' + movie.id) #{movie.title}
         p Released: #{movie.year}

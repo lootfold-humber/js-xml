@@ -23,12 +23,12 @@ app.get("/", (req, res) => {
 
 app.get("/search", async (req, res) => {
   const { search_key } = req.query;
-  const data = await service.searchMovies(search_key);
-  res.render("results", { title: "Search Results", data });
+  const movies = await service.searchMovies(search_key);
+  res.render("results", { title: "Search Results", movies });
 });
 
 app.get("/movie", async function (req, res) {
   const { id } = req.query;
-  const data = await service.getMovieInfo(id);
-  res.render("details", { title: data.title, data });
+  const movie = await service.getMovieInfo(id);
+  res.render("details", { title: movie.title, movie });
 });
