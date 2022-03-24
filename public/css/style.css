@@ -1,7 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Palette+Mosaic&family=Roboto&display=swap");
 
-h1,
-h2 {
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+h1 {
   font-family: "Palette Mosaic", cursive;
   text-transform: uppercase;
 }
@@ -16,8 +19,11 @@ header {
 }
 
 main {
-  height: calc(98vh - 70px);
   position: relative;
+}
+
+.search {
+  height: calc(98vh - 70px);
 }
 
 .search__form {
@@ -51,8 +57,24 @@ main {
   cursor: pointer;
 }
 
-body {
-  font-family: "Roboto", sans-serif;
+.results {
+  padding-left: 5em;
+}
+
+.movie {
+  display: flex;
+  padding: 1em;
+}
+
+.movie__poster {
+  max-height: 10em;
+  max-width: 5em;
+  margin-right: 1em;
+}
+
+.movie__title {
+  color: black;
+  text-decoration: none;
 }
 
 footer {

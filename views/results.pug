@@ -1,7 +1,11 @@
 extends layout
 block content
-    each movie in movies
-        h2
-            a(href='/movie?id=' + movie.id) #{movie.title}
-        p Released: #{movie.year}
-        img(src=movie.poster, alt=movie.title + "poster")
+    section.results
+        h2 Search results...
+        each movie in movies
+            div.movie
+                img.movie__poster(src=movie.poster, alt=movie.title + " poster")
+                div
+                    h3
+                        a.movie__title(href='/movie?id=' + movie.id) #{movie.title}
+                    p #{movie.year}

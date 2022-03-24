@@ -1,5 +1,6 @@
 extends layout
 block content
-    form.search__form(method="GET", action="/search")
-        input.search__input(name='search_key', placeholder="search movies by title.." aria-label="search input", autofocus)
-        button.search__btn Search
+    div.search
+        form.search__form(method="GET", action="/search")
+            input.search__input(name='search_key', placeholder="search movies by title.." aria-label="search input", autofocus)
+            button.search__btn Search
