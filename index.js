@@ -15,6 +15,11 @@ app.get("/", (req, res) => {
   });
 });
 
+app.get("/search", (req, res) => {
+  const { search_key } = req.query;
+  console.log(search_key);
+});
+
 app.listen(port, () => {
   console.log(`Listening on ${port}`);
 });

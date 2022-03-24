@@ -1,3 +1,6 @@
 extends layout
 block content
-    p Index Works
+    form(method="GET", action="/search")
+        label(for='search_key') Search
+        input#search_key(name='search_key', placeholder="search movies by title..")
+        button#btn_submit Go
