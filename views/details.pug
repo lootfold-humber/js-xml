@@ -1,11 +1,13 @@
 extends layout
 block content
-    h2 #{movie.title}
-    p #{movie.awards}
-    p #{movie.plot}
-    p Actors: #{movie.actors}
-    p Raring: #{movie.rating}
-    p Release Date: #{movie.openingDate}
-    a(href=movie.reviewLink) #{movie.linkText} Published on: #{movie.publishDate}
-    div
-        img(src=movie.poster alt=movie.title + " poster")
+    div.details
+        img.details__poster(src=movie.poster alt=movie.title + " poster")
+        div
+            h2 #{movie.title}
+            p #{movie.plot}
+            p Actors: #{movie.actors}
+            p Awards: #{movie.awards}
+            p Release Date: #{movie.openingDate}
+            p Rating: #{movie.rating}
+            a(href=movie.reviewLink, target="_blank") #{movie.linkText}
+            span.publish__text &nbsp; (Published on: #{movie.publishDate})

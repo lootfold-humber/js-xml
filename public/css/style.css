@@ -77,6 +77,25 @@ main {
   text-decoration: none;
 }
 
+.details {
+  height: calc(95vh - 70px);
+  display: flex;
+  padding: 2em;
+}
+
+.details h2 {
+  margin-top: 0;
+}
+
+.details__poster {
+  max-height: 20em;
+  margin-right: 2em;
+}
+
+.publish__text {
+  font-style: italic;
+}
+
 footer {
   height: 20px;
   margin: 0;
