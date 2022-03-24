@@ -1,0 +1,7 @@
+extends layout
+block content
+    each movie in data
+        h2 #{movie.Title}
+        p Released: #{movie.Year}
+        p Type: #{movie.Type}
+        img(src=movie.Poster, alt=movie.Title + ' poster')

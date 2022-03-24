@@ -27,8 +27,7 @@ app.get("/", (req, res) => {
 app.get("/search", async (req, res) => {
   const { search_key } = req.query;
   const data = await getSearchResults(search_key);
-  console.log(data);
-  // res.render("results", data);
+  res.render("results", { data });
 });
 
 async function getSearchResults(searchKey) {
