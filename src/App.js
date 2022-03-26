@@ -5,6 +5,7 @@ import service from "./service";
 import Profile from "./components/profile";
 import Projects from "./components/projects";
 import Skills from "./components/skills";
+import Contact from "./components/contact";
 
 class App extends Component {
   state = {
@@ -34,6 +35,17 @@ class App extends Component {
     this.setState({ skills });
   }
 
+  handleContact = (event) => {
+    event.preventDefault();
+    const { name, email, message } = event.target;
+    const data = {
+      name: name.value,
+      email: email.value,
+      message: message.value,
+    };
+    service.postContactRequest(data);
+  };
+
   render() {
     return (
       <React.Fragment>
@@ -41,6 +53,7 @@ class App extends Component {
         <Profile profile={this.state.profile} />
         <Projects projects={this.state.projects} />
         <Skills skills={this.state.skills} />
+        <Contact handleSubmit={this.handleContact} />
       </React.Fragment>
     );
   }

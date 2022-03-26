@@ -41,10 +41,15 @@ function getSkills() {
   ];
 }
 
+function postContactRequest(data) {
+  console.log(data);
+}
+
 const service = {
   getProfile,
   getProjects,
   getSkills,
+  postContactRequest,
 };
 
 export default service;
