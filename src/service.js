@@ -27,9 +27,24 @@ function getProjects() {
   ];
 }
 
+function getSkills() {
+  return [
+    { id: 1, name: "HTML" },
+    { id: 2, name: "CSS" },
+    { id: 3, name: "Javascript" },
+    { id: 4, name: "Angular" },
+    { id: 5, name: "React" },
+    { id: 6, name: "C" },
+    { id: 7, name: "ASP" },
+    { id: 8, name: "PHP" },
+    { id: 9, name: "Node" },
+  ];
+}
+
 const service = {
   getProfile,
   getProjects,
+  getSkills,
 };
 
 export default service;
