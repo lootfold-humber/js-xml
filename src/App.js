@@ -6,6 +6,7 @@ import Profile from "./components/profile";
 import Projects from "./components/projects";
 import Skills from "./components/skills";
 import Contact from "./components/contact";
+import Footer from "./components/footer";
 
 class App extends Component {
   state = {
@@ -54,6 +55,7 @@ class App extends Component {
         <Projects projects={this.state.projects} />
         <Skills skills={this.state.skills} />
         <Contact handleSubmit={this.handleContact} />
+        <Footer />
       </React.Fragment>
     );
   }
