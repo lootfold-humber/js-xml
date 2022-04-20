@@ -4,7 +4,7 @@ function getProfile() {
     last: "Dubey",
     about:
       "I'm a Toronto based full-stack developer proficient in ASP.NET and Angular.",
-    photo: "",
+    photo: "images/photo.jpg",
   };
 }
 
@@ -15,14 +15,14 @@ function getProjects() {
       title: "Monopoly Banker",
       content:
         "A web app to manage bank for monopoly players. Developed using HTML, CSS & javascript.",
-      photo: "",
+      photo: "images/monopoly.png",
     },
     {
       id: 2,
       title: "Shopping List",
       content:
         "A web app to manage shoppping list. Developed using Angular, Material Design, ASP.NET Core & SqlServer.",
-      photo: "",
+      photo: "images/shopping.png",
     },
   ];
 }
@@ -45,11 +45,11 @@ function postContactRequest(data) {
   console.log(data);
 }
 
-const service = {
+const userService = {
   getProfile,
   getProjects,
   getSkills,
   postContactRequest,
 };
 
-export default service;
+export default userService;

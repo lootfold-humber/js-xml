@@ -1,7 +1,7 @@
 import "./App.css";
 import React, { Component } from "react";
 import Header from "./components/header";
-import service from "./service";
+import service from "./service/staticUserService";
 import Profile from "./components/profile";
 import Projects from "./components/projects";
 import Skills from "./components/skills";
